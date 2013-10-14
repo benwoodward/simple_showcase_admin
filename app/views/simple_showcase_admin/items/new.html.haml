@@ -1,0 +1,24 @@
+%h1 New Item
+%br
+%br
+= simple_form_for([:category, @item], :html => {:multipart => true, :class => 'form-horizontal'})  do |f|
+  = f.error_notification
+  = f.input :title, input_html: { class: "span6" }
+  = f.input :description, input_html: { class: "span6" }
+  .control-group
+    = f.label :image, 'Photos', class: 'control-label'
+    .controls
+      %div.hint
+        Supports
+        %b.red .jpg .jpeg .png .bmp
+        and
+        %b.red .tiff
+        formats
+    = f.simple_fields_for :photos, @photos do |builder|
+      = render "photos", f: builder
+  .control-group
+    .controls= add_child_link "Add Another Photo", :photos
+  = new_child_fields_template f
+  .form-actions
+    = f.button :submit, 'Save', :class => 'btn-primary'
+    = link_to 'Cancel', category_path(params[:category_id]), class: 'btn'

@@ -1,0 +1,26 @@
+%h1 Edit Item
+%br
+%br
+= simple_form_for([@category, @item], :html => {:multipart => true, :class => 'form-horizontal'})  do |f|
+  - f.object.errors.full_messages.each do |msg|
+    = msg
+  = f.error_notification
+  = f.input :title, input_html: { class: "span6" }
+  = f.input :description, input_html: { class: "span6" }
+  .control-group#foo
+    = new_child_fields_template f
+    = f.label :image, 'Photos', class: 'control-label'
+    .controls
+      %div.hint
+        Supports
+        %b.red .jpg .jpeg .png .bmp
+        and
+        %b.red .tiff
+        formats
+    = f.fields_for :photos, @photos do |builder|
+      = render "photos", f: builder
+  .control-group#photo-inputs
+    .controls= add_child_link "Add Another Photo", :photos
+  .form-actions
+    = f.button :submit, 'Save', :class => 'btn-primary'
+    = link_to 'Cancel', category_path(@category), class: 'btn'

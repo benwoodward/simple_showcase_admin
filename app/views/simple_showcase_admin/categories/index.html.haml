@@ -1,0 +1,26 @@
+%h1 Listing Categories
+
+= link_to 'New Category', new_category_path, :class => 'btn-primary btn pull-right'
+
+%br
+%br
+
+= paginate @categories
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th Category
+      %th &nbsp
+
+  %tbody
+    - @categories.each do |category|
+      %tr
+        %td= category.category
+        %td
+          = link_to 'View', category_path(category), :class => 'btn'
+          = link_to 'Edit', edit_category_path(category), :class => 'btn btn-primary'
+          = link_to 'Delete', category_path(category), :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'
+
+= paginate @categories
+

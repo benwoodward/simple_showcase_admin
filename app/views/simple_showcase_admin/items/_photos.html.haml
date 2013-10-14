@@ -1,0 +1,11 @@
+.photo-fields
+  .controls.item-photo
+    - if f.object.new_record?
+      = f.file_field :image
+    - else
+      = image_tag f.object.image.url
+    %label.checkbox
+      Featured?
+      = f.check_box :featured
+      = link_to 'Remove', '#', class: 'remove_child btn btn-mini btn-danger'
+  = f.hidden_field :_destroy, class: :destroy

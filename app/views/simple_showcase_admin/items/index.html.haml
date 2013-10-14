@@ -1,0 +1,48 @@
+%h1 #{@category.category.titleize} Category
+
+%br
+%br
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th Category
+      %th Date Created
+      %th &nbsp
+
+  %tbody
+    %tr
+      %td= @category.category
+      %td=l @category.created_at
+      %td
+        = link_to 'Edit', edit_category_path(@category), :class => 'btn btn-primary'
+        = link_to 'Delete', category_path(@category), :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'
+
+%br
+%br
+
+%h2
+  Category Items
+  = link_to "New Item", new_category_item_path(@category), class: 'btn btn-primary pull-right'
+
+%br
+
+= paginate @items
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th Items
+      %th &nbsp
+
+  %tbody
+    - @items.each do |item|
+      %tr
+        %td= item.title
+        %td= item.description.truncate(150)
+        %td
+          = link_to 'View', category_item_path(@item), :class => 'btn'
+          = link_to 'Edit', edit_category_item_path(@item), :class => 'btn btn-primary'
+          = link_to 'Delete', category_item_path(@item), :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'
+
+= paginate @items

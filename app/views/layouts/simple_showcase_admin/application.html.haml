@@ -1,0 +1,47 @@
+!!!
+%html
+  %head
+    %title Administrator Area
+    = stylesheet_link_tag "simple_showcase_admin/application"
+    = javascript_include_tag "simple_showcase_admin/application"
+    = csrf_meta_tag
+  %body
+    #container
+      .navbar.navbar-fixed-top
+        .navbar-inner
+          .container
+            - if current_user
+              %ul.nav
+                %li.dropdown
+                  = link_to "Categories <b class='caret'></b>".html_safe, '#', :class => 'dropdown-toggle', "data-toggle" => "dropdown"
+                  %ul.dropdown-menu
+                    - if SimpleShowcaseAdmin::Category.all.count > 0
+                      %li= link_to 'Manage Categories', [ :categories]
+                      %li.divider
+                    - else
+                      %li= link_to 'Create a Category', [:new,  :category]
+                    - SimpleShowcaseAdmin::Category.all.each do |c|
+                      %li= link_to c.category, [ c]
+                - unless featured_photo_exists
+                  %li.warning.label.label-important(rel="popover" data-content="You can select an image to be featured by editing a product and selecting 'Featured?' for one of the associated images." data-original-title="Please Select An Image To Be Featured.")
+                    %i.icon-info-sign.icon-white
+                    No Feature Photo Has Been Selected!
+              %ul.nav.pull-right
+                %li.dropdown
+                  = link_to "<i class='icon-user icon-white'></i> #{current_user.first_name} <b class='caret'></b>".html_safe, '#', :class => 'dropdown-toggle', "data-toggle" => "dropdown"
+                  %ul.dropdown-menu
+                    %li= link_to 'Your Details', detail_path(current_user)
+                    %li.divider
+                    %li= link_to 'Log Out', logout_path
+      .container
+        .flash
+          - if flash[:alert]
+            .message.alert.alert-error
+              = link_to '&times;'.html_safe, '#', class: 'close', "data-dismiss" => "alert"
+              = flash[:alert]
+          - if flash[:notice]
+            .message.alert.alert-success
+              = link_to '&times;'.html_safe, '#', class: 'close', "data-dismiss" => "alert"
+              = flash[:notice]
+        .content
+          = yield

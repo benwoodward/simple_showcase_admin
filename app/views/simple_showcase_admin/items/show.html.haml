@@ -1,0 +1,15 @@
+= link_to 'Back', category_path(@category), class: 'btn'
+%br
+%br
+%h1= @item.title
+%br
+%br
+%p= markdown(@item.description)
+%br
+- @item.photos.each.with_index do |p, i|
+  - if p.image.present?
+    = image_tag p.image.url, alt: "#{@item.title.parameterize}-#{i+1}"
+    %br
+  %br
+= link_to 'Edit', [:edit, @category, @item], class: 'btn btn-primary'
+= link_to 'Delete', [@category, @item], method: :delete, class: 'btn btn-danger', confirm: 'Are you sure?'

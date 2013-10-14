@@ -1,0 +1,9 @@
+%h1 New Category
+%br
+%br
+= simple_form_for([ @category], :html => {:multipart => true, :class => 'form-horizontal'}) do |f|
+  = f.error_notification
+  = f.input :category, input_html: { class: "span6" }
+  .form-actions
+    = f.button :submit, 'Save', :class => 'btn-primary'
+    = link_to 'Cancel', categories_path, class: 'btn'
