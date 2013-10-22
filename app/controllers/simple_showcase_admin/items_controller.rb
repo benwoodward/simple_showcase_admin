@@ -44,5 +44,13 @@ module SimpleShowcaseAdmin
       @item.destroy
       redirect_to category_path(params[:category_id]), notice: "Successfully deleted #{@item.title}"
     end
+
+    def sort
+      @item = SimpleShowcaseAdmin::Item.find(params[:id])
+      @item.row_order_position = params[:row_order_position]
+      @item.save!
+
+      render nothing: true
+    end
   end
 end

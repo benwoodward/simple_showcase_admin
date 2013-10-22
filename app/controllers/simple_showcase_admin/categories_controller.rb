@@ -1,7 +1,7 @@
 module SimpleShowcaseAdmin
   class CategoriesController < SimpleShowcaseAdmin::ApplicationController
     def index
-      @categories = SimpleShowcaseAdmin::Category.page(params[:page]).per(10)
+      @categories = SimpleShowcaseAdmin::Category.rank(:row_order).page(params[:page]).per(10)
     end
 
     def new
@@ -14,7 +14,7 @@ module SimpleShowcaseAdmin
 
     def show
       @category = SimpleShowcaseAdmin::Category.find(params[:id])
-      @items = Item.where(category_id: @category.id).page(params[:page]).per(10)
+      @items = Item.where(category_id: @category.id).rank(:row_order).page(params[:page]).per(10)
     end
 
     def create
@@ -39,6 +39,17 @@ module SimpleShowcaseAdmin
       @catagory = SimpleShowcaseAdmin::Category.find(params[:id])
       @catagory.destroy
       redirect_to categories_path
+    end
+
+    def sort
+      @category = SimpleShowcaseAdmin::Category.find(params[:id])
+
+      @category.row_order_position = params[:row_order_position]
+      puts "\n\n\n\n\n@category"
+      puts @category.inspect
+      @category.save!
+
+      render nothing: true
     end
   end
 end

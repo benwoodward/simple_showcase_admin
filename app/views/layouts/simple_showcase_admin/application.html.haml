@@ -22,7 +22,8 @@
                       %li= link_to 'Create a Category', [:new,  :category]
                     - SimpleShowcaseAdmin::Category.all.each do |c|
                       %li= link_to c.category, [ c]
-                - unless featured_photo_exists
+
+                - if SimpleShowcaseAdmin::Config.featured_image and !featured_photo_exists
                   %li.warning.label.label-important(rel="popover" data-content="You can select an image to be featured by editing a product and selecting 'Featured?' for one of the associated images." data-original-title="Please Select An Image To Be Featured.")
                     %i.icon-info-sign.icon-white
                     No Feature Photo Has Been Selected!

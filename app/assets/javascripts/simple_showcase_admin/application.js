@@ -16,6 +16,9 @@
 //= require bootstrap-alert
 //= require bootstrap-tooltip
 //= require bootstrap-popover
+//= require jquery.ui.sortable
+//= require jquery.ui.effect-highlight
+//= require ./sort
 //= require_tree .
 
 $(document).ready(function() {

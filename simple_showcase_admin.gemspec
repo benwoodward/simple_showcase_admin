@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency "sorcery", '~> 0.8'
   s.add_dependency 'friendly_id', '~> 4.0', '>= 4.0.9'
   s.add_dependency "jquery-rails"
+  s.add_dependency "jquery-ui-rails"
   s.add_dependency "haml"
   s.add_dependency 'kaminari', '~> 0.14'
   s.add_dependency 'carrierwave'
@@ -29,6 +30,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'compass-rails'
   s.add_dependency 'compass_twitter_bootstrap'
   s.add_dependency 'redcarpet'
+  s.add_dependency 'ranked-model'
 
   s.add_development_dependency 'rspec-rails', '~> 2.13'
   s.add_development_dependency "sqlite3"

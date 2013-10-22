@@ -29,7 +29,7 @@
 
 = paginate @items
 
-%table.table.table-bordered.table-striped
+%table.table.table-bordered.table-striped#sortable{:data => {update_url: sort_category_items_path(@category)}}
   %thead
     %tr
       %th Title
@@ -38,12 +38,12 @@
 
   %tbody
     - @items.each do |item|
-      %tr
+      %tr{data: {item_id: "#{item.id}"}, class: 'item'}
         %td= item.title
         %td= item.description.truncate(150)
         %td.right
-          = link_to 'View', [ @category, item], :class => 'btn'
+          = link_to 'View', [@category, item], :class => 'btn'
           = link_to 'Edit', [:edit,  @category, item], :class => 'btn btn-primary'
-          = link_to 'Delete', [ @category, item], :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'
+          = link_to 'Delete', [@category, item], :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'
 
 = paginate @items

@@ -7,7 +7,7 @@
 
 = paginate @categories
 
-%table.table.table-bordered.table-striped
+%table.table.table-bordered.table-striped#sortable{:data => {update_url: sort_categories_path}}
   %thead
     %tr
       %th Category
@@ -15,7 +15,7 @@
 
   %tbody
     - @categories.each do |category|
-      %tr
+      %tr{data: {item_id: "#{category.id}"}, class: 'item'}
         %td= category.category
         %td
           = link_to 'View', category_path(category), :class => 'btn'

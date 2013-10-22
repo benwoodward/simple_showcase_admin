@@ -5,7 +5,10 @@ SimpleShowcaseAdmin::Engine.routes.draw do
   get 'logout' => 'sessions#destroy', :as => 'logout'
 
   resources :categories do
-    resources :items
+    post :sort, on: :collection
+    resources :items do
+      post :sort, on: :collection
+    end
   end
   resources :details
   resources :sessions
