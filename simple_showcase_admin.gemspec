@@ -11,8 +11,8 @@ Gem::Specification.new do |s|
   s.email       = ["b@benw.me"]
   s.files = `git ls-files`.split("\n")
   # s.homepage    = "TODO"
-  # s.summary     = "TODO: Summary of SimpleShowcaseAdmin."
-  # s.description = "TODO: Description of SimpleShowcaseAdmin."
+  s.summary     = "A very simple Rails backend to manage categories and items."
+  s.description = "SimpleShowcaseAdmin includes all the necessary logic to create a basic admin panel that allows for reorderable items that are grouped into categories. It does not include any frontend code."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
