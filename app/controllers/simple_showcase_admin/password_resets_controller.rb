@@ -1,5 +1,5 @@
 module SimpleShowcaseAdmin
-  class PasswordResetsController < ApplicationController
+  class PasswordResetsController < SimpleShowcaseAdmin::ApplicationController
     skip_before_filter :require_login
 
     # request password reset.

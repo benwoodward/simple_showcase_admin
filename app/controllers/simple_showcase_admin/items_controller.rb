@@ -1,5 +1,5 @@
 module SimpleShowcaseAdmin
-  class ItemsController < ApplicationController
+  class ItemsController < SimpleShowcaseAdmin::ApplicationController
     def new
       @item = SimpleShowcaseAdmin::Item.new
       @photos = @item.photos.new

@@ -1,5 +1,5 @@
 module SimpleShowcaseAdmin
-  class DetailsController < ApplicationController
+  class DetailsController < SimpleShowcaseAdmin::ApplicationController
     def edit
       @user = SimpleShowcaseAdmin::User.find(params[:id])
     end

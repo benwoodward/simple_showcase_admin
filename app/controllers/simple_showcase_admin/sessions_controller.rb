@@ -1,5 +1,5 @@
 module SimpleShowcaseAdmin
-  class SessionsController < ApplicationController
+  class SessionsController < SimpleShowcaseAdmin::ApplicationController
     skip_before_filter :require_login
 
     def new

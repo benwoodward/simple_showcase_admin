@@ -1,5 +1,5 @@
 module SimpleShowcaseAdmin
-  class CategoriesController < ApplicationController
+  class CategoriesController < SimpleShowcaseAdmin::ApplicationController
     def index
       @categories = SimpleShowcaseAdmin::Category.page(params[:page]).per(10)
     end
