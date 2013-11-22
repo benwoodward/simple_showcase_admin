@@ -29,24 +29,21 @@ module SimpleShowcaseAdmin
     def update
       @category = SimpleShowcaseAdmin::Category.find(params[:id])
       if @category.update_attributes(params[:category])
-        redirect_to category_path(@category), notice: 'Successfully updated catagory'
+        redirect_to category_path(@category), notice: 'Successfully updated category'
       else
         render :edit
       end
     end
 
     def destroy
-      @catagory = SimpleShowcaseAdmin::Category.find(params[:id])
-      @catagory.destroy
+      @category = SimpleShowcaseAdmin::Category.find(params[:id])
+      @category.destroy
       redirect_to categories_path
     end
 
     def sort
       @category = SimpleShowcaseAdmin::Category.find(params[:id])
-
       @category.row_order_position = params[:row_order_position]
-      puts "\n\n\n\n\n@category"
-      puts @category.inspect
       @category.save!
 
       render nothing: true

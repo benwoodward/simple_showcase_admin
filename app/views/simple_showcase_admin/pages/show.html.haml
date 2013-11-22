@@ -1,0 +1,23 @@
+%h1 #{@page.title.titleize} Page
+
+%br
+%br
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th page
+      %th Date Created
+      %th &nbsp
+
+  %tbody
+    %tr
+      %td= @page.title
+      %td=l @page.created_at
+      %td
+        = link_to 'Edit', edit_page_path(@page), :class => 'btn btn-primary'
+        = link_to 'Delete', page_path(@page), :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'
+
+%br
+%br
+

@@ -16,12 +16,23 @@
                   = link_to "Categories <b class='caret'></b>".html_safe, '#', :class => 'dropdown-toggle', "data-toggle" => "dropdown"
                   %ul.dropdown-menu
                     - if SimpleShowcaseAdmin::Category.all.count > 0
-                      %li= link_to 'Manage Categories', [ :categories]
+                      %li= link_to 'Manage Categories', [:categories]
                       %li.divider
                     - else
-                      %li= link_to 'Create a Category', [:new,  :category]
+                      %li= link_to 'Create a Category', [:new, :category]
                     - SimpleShowcaseAdmin::Category.all.each do |c|
-                      %li= link_to c.category, [ c]
+                      %li= link_to c.category, [c]
+              %ul.nav
+                %li.dropdown
+                  = link_to "Pages <b class='caret'></b>".html_safe, '#', :class => 'dropdown-toggle', "data-toggle" => "dropdown"
+                  %ul.dropdown-menu
+                    - if SimpleShowcaseAdmin::Page.all.count > 0
+                      %li= link_to 'Manage Pages', [:pages]
+                      %li.divider
+                    - else
+                      %li= link_to 'Create a Page', [:new, :page]
+                    - SimpleShowcaseAdmin::Page.all.each do |p|
+                      %li= link_to p.title, [p]
 
                 - if SimpleShowcaseAdmin::Config.featured_image and !featured_photo_exists
                   %li.warning.label.label-important(rel="popover" data-content="You can select an image to be featured by editing a product and selecting 'Featured?' for one of the associated images." data-original-title="Please Select An Image To Be Featured.")

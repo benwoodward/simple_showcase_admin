@@ -10,6 +10,10 @@ SimpleShowcaseAdmin::Engine.routes.draw do
       post :sort, on: :collection
     end
   end
+  resources :pages do
+    post :sort, on: :collection
+  end
+
   resources :details
   resources :sessions
   resources :password_resets, path: 'password-reset', as: 'password_resets'
