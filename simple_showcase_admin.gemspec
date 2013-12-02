@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'compass_twitter_bootstrap'
   s.add_dependency 'redcarpet'
   s.add_dependency 'ranked-model'
+  s.add_dependency 'rails-settings-cached', '0.2.4'
 
   s.add_development_dependency 'rspec-rails', '~> 2.13'
   s.add_development_dependency "sqlite3"

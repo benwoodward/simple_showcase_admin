@@ -1,0 +1,9 @@
+= form_tag("/admin/settings", method: 'put') do
+  - unless @settings.blank?
+    - @settings.each do |key, value|
+      = fields_for :settings do |s|
+        = s.label key, key.titleize
+        = s.text_field key, value: value
+    .form-actions
+      = submit_tag self.controller.action_name == 'new' ? 'Create' : 'Update', :class => 'btn-primary'
+
