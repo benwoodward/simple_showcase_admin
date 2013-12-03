@@ -1,3 +1,8 @@
+0.0.6
+-----
+* [Fix settings controller update
+action](https://github.com/benwoodward/simple_showcase_admin/commit/9101fc2fb16e892df6fd505b38f69781c4938cf7)
+
 0.0.5
 -----
 * [Add website settings
