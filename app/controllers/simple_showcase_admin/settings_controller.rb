@@ -9,7 +9,7 @@ module SimpleShowcaseAdmin
         Setting.send("#{setting}=", value)
       end
 
-      redirect_to [:admin, :settings], :notice => 'Settings updated' # Redirect to the settings index
+      redirect_to [:settings], :notice => 'Settings updated' # Redirect to the settings index
     end
   end
 end
