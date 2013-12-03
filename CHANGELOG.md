@@ -1,7 +1,7 @@
 0.0.5
 -----
 * [Add website settings
-page](https://github.com/benwoodward/simple_showcase_admin/commit/f3b36b0474cfbeb42e905292e19146325a567b60)
+page](https://github.com/benwoodward/simple_showcase_admin/commit/f21bddb41f9aec565f56e8bed1291c22bf39f31d)
 
 0.0.4
 -----
