@@ -1,7 +1,7 @@
 module SimpleShowcaseAdmin
   class Photo < ActiveRecord::Base
     attr_accessible :image, :featured, :landscape
-    mount_uploader :image, ImageUploader
+    mount_uploader :image, SimpleShowcaseAdmin::ImageUploader
     before_save :reset_featured_post, :if => :featured_changed?
 
     def reset_featured_post

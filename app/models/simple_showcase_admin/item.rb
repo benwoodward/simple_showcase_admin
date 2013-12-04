@@ -14,8 +14,6 @@ module SimpleShowcaseAdmin
     ranks :row_order
 
     validates_presence_of :title
-    validates_presence_of :description
-
     validates_uniqueness_of :title
 
     before_validation :format

@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
   s.add_dependency "haml"
   s.add_dependency 'kaminari', '~> 0.14'
   s.add_dependency 'carrierwave'
-  s.add_dependency 'rmagick'
+  s.add_dependency 'rmagick', '2.13.2'
   s.add_dependency 'compass-rails'
   s.add_dependency 'compass_twitter_bootstrap'
   s.add_dependency 'redcarpet'
